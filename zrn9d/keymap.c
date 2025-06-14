@@ -17,10 +17,10 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
-    KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,       
-    KC_BSPC,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,        
+    KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,       
+    KC_BSPC,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_EQUAL,       
     LT(3, KC_TAB),  KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,       
-    KC_LEFT_SHIFT,  MT(MOD_LCTL, KC_Z),LT(2, KC_X),    MT(MOD_LALT, KC_C),MT(MOD_LGUI, KC_V),KC_B,                                           KC_N,           MT(MOD_RGUI, KC_M),MT(MOD_RALT, KC_COMMA),LT(2, KC_DOT),  MT(MOD_RCTL, KC_SLASH),KC_RIGHT_SHIFT, 
+    KC_TILD,        MT(MOD_LCTL, KC_Z),MT(MOD_LSFT, KC_X),MT(MOD_LALT, KC_C),MT(MOD_LGUI, KC_V),KC_B,                                           KC_N,           MT(MOD_RGUI, KC_M),MT(MOD_RALT, KC_COMMA),MT(MOD_RSFT, KC_DOT),MT(MOD_RCTL, KC_SLASH),KC_BSLS,        
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_SPACE,       KC_BSPC,        KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TAB,         KC_ENTER
   ),
@@ -59,30 +59,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
-const uint16_t PROGMEM combo0[] = { KC_LEFT_SHIFT, KC_RIGHT_SHIFT, COMBO_END};
-const uint16_t PROGMEM combo1[] = { KC_F, KC_BSPC, COMBO_END};
-const uint16_t PROGMEM combo2[] = { KC_D, KC_BSPC, COMBO_END};
-const uint16_t PROGMEM combo3[] = { KC_S, KC_BSPC, COMBO_END};
-const uint16_t PROGMEM combo4[] = { KC_A, KC_BSPC, COMBO_END};
-const uint16_t PROGMEM combo5[] = { KC_K, KC_TAB, COMBO_END};
-const uint16_t PROGMEM combo6[] = { KC_L, KC_TAB, COMBO_END};
-const uint16_t PROGMEM combo7[] = { KC_SCLN, KC_TAB, COMBO_END};
-const uint16_t PROGMEM combo8[] = { KC_G, KC_BSPC, COMBO_END};
-const uint16_t PROGMEM combo9[] = { KC_H, KC_TAB, COMBO_END};
-const uint16_t PROGMEM combo10[] = { KC_J, KC_TAB, COMBO_END};
+const uint16_t PROGMEM combo0[] = { KC_F, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM combo1[] = { KC_D, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM combo2[] = { KC_S, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM combo3[] = { KC_A, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM combo4[] = { KC_K, KC_TAB, COMBO_END};
+const uint16_t PROGMEM combo5[] = { KC_L, KC_TAB, COMBO_END};
+const uint16_t PROGMEM combo6[] = { KC_SCLN, KC_TAB, COMBO_END};
+const uint16_t PROGMEM combo7[] = { KC_G, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM combo8[] = { KC_H, KC_TAB, COMBO_END};
+const uint16_t PROGMEM combo9[] = { KC_J, KC_TAB, COMBO_END};
+const uint16_t PROGMEM combo10[] = { MT(MOD_LSFT, KC_X), MT(MOD_RSFT, KC_DOT), COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(combo0, KC_CAPS),
-    COMBO(combo1, TT(1)),
-    COMBO(combo2, TT(2)),
-    COMBO(combo3, TT(3)),
-    COMBO(combo4, TT(4)),
-    COMBO(combo5, TT(2)),
-    COMBO(combo6, TT(3)),
-    COMBO(combo7, TT(4)),
+    COMBO(combo0, TT(1)),
+    COMBO(combo1, TT(2)),
+    COMBO(combo2, TT(3)),
+    COMBO(combo3, TT(4)),
+    COMBO(combo4, TT(2)),
+    COMBO(combo5, TT(3)),
+    COMBO(combo6, TT(4)),
+    COMBO(combo7, KC_ESCAPE),
     COMBO(combo8, KC_ESCAPE),
-    COMBO(combo9, KC_ESCAPE),
-    COMBO(combo10, TT(1)),
+    COMBO(combo9, TT(1)),
+    COMBO(combo10, KC_CAPS),
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
