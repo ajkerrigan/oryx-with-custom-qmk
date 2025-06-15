@@ -1,3 +1,4 @@
+#define FLOW_TAP_TERM 100
 #undef TAPPING_TERM
 #define TAPPING_TERM 250
 
@@ -8,7 +9,7 @@
 #undef MOUSEKEY_MAX_SPEED
 #define MOUSEKEY_MAX_SPEED 10
 
-#define SERIAL_NUMBER "OQwYg/XbW5yy"
+#define SERIAL_NUMBER "OQwYg/nlYWNW"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 11
 
