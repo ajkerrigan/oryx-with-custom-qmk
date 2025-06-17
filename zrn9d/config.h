@@ -4,6 +4,8 @@
 
 #define PERMISSIVE_HOLD
 
+#define COMBO_TERM 60
+
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #undef MOUSEKEY_INTERVAL
 #define MOUSEKEY_INTERVAL 18
@@ -11,7 +13,8 @@
 #undef MOUSEKEY_MAX_SPEED
 #define MOUSEKEY_MAX_SPEED 10
 
-#define SERIAL_NUMBER "zrn9d/XbWPJo"
+#define CAPS_LOCK_STATUS
+#define SERIAL_NUMBER "zrn9d/orq3Lr"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 11
 
