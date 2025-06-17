@@ -1,6 +1,9 @@
 #define FLOW_TAP_TERM 100
+#define CHORDAL_HOLD
 #undef TAPPING_TERM
 #define TAPPING_TERM 250
+
+#define PERMISSIVE_HOLD
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #undef MOUSEKEY_INTERVAL
@@ -9,7 +12,7 @@
 #undef MOUSEKEY_MAX_SPEED
 #define MOUSEKEY_MAX_SPEED 10
 
-#define SERIAL_NUMBER "zrn9d/NopB7a"
+#define SERIAL_NUMBER "zrn9d/QzqQXm"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 11
 
