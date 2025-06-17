@@ -58,6 +58,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT(
+  'L', 'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 'R',
+  'L', 'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 'R',
+  'L', 'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 'R',
+  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
+  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
+                 'L', 'L', 'L', 'R', 'R', 'R'
+);
 
 const uint16_t PROGMEM combo0[] = { KC_F, KC_BSPC, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_D, KC_BSPC, COMBO_END};
@@ -88,14 +96,6 @@ combo_t key_combos[COMBO_COUNT] = {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(3, KC_TAB):
-            return g_tapping_term -100;
-        case MT(MOD_LCTL, KC_Z):
-            return g_tapping_term -100;
-        case MT(MOD_LSFT, KC_X):
-            return g_tapping_term -100;
-        case MT(MOD_RSFT, KC_DOT):
-            return g_tapping_term -100;
-        case MT(MOD_RCTL, KC_SLASH):
             return g_tapping_term -100;
         default:
             return g_tapping_term;
