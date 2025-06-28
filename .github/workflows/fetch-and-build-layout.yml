@@ -76,19 +76,13 @@ jobs:
           git push
 
       - name: Update QMK firmware submodule to latest version (${{ steps.download-layout-source.outputs.firmware_version }})
+        shell: bash
         run: |
           git submodule update --init --remote --depth=1 --no-single-branch
           cd qmk_firmware
-          git checkout -B firmware${{ steps.download-layout-source.outputs.firmware_version }} origin/firmware${{ steps.download-layout-source.outputs.firmware_version }}
-          git submodule foreach '
-            current_url=$(git remote get-url origin 2>/dev/null || echo "")
-            if [[ "$current_url" == git@github.com:* ]]; then
-              new_url=$(echo "$current_url" | sed "s!git@github.com:!https://github.com/!")
-              git remote set-url origin "$new_url"
-              echo "Updated remote URL: $current_url --> $new_url"
-            else
-              echo "Skipping URL update for $name"
-            fi' && git submodule update --init --recursive || echo "Some submodules failed to update, continuing..."
+          git checkout -B firmware${{ steps.download-layout-source.outputs.firmware_version }} origin/firmware${{ steps.download-layout-source.outputs.firmware_version }} && git submodule foreach '
+          sed -ie 's!git@github.com:!https://github.com/!' .gitmodules
+          git submodule update --init --recursive
           cd ..
           git add qmk_firmware
           git commit -m "✨(qmk): Update firmware" || echo "No QMK change"
