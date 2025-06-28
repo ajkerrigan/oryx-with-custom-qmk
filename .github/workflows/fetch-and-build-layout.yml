@@ -76,7 +76,6 @@ jobs:
           git push
 
       - name: Update QMK firmware submodule to latest version (${{ steps.download-layout-source.outputs.firmware_version }})
-        shell: bash
         run: |
           git submodule update --init --remote --depth=1 --no-single-branch
           cd qmk_firmware
