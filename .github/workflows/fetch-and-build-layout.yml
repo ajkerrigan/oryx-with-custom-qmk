@@ -88,8 +88,7 @@ jobs:
               echo "Updated remote URL: $current_url --> $new_url"
             else
               echo "Skipping URL update for $name"
-            fi
-          ' && git submodule update --init --recursive || echo "Some submodules failed to update, continuing..."
+            fi' && git submodule update --init --recursive || echo "Some submodules failed to update, continuing..."
           cd ..
           git add qmk_firmware
           git commit -m "✨(qmk): Update firmware" || echo "No QMK change"
