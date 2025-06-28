@@ -80,7 +80,16 @@ jobs:
           git submodule update --init --remote --depth=1 --no-single-branch
           cd qmk_firmware
           git checkout -B firmware${{ steps.download-layout-source.outputs.firmware_version }} origin/firmware${{ steps.download-layout-source.outputs.firmware_version }}
-          git submodule foreach 'git remote set-url origin $(git remote get-url origin | sed "s!git@github.com:!https://github.com/!")'
+          git submodule foreach '
+            current_url=$(git remote get-url origin 2>/dev/null || echo "")
+            if [[ "$current_url" == git@github.com:* ]]; then
+              new_url=$(echo "$current_url" | sed "s!git@github.com:!https://github.com/!")
+              git remote set-url origin "$new_url"
+              echo "Updated remote URL: $current_url --> $new_url"
+            else
+              echo "Skipping URL update for $(pwd)"
+            fi
+          ' || echo "Some submodules failed to update, continuing..."
           git submodule update --init --recursive
           cd ..
           git add qmk_firmware
