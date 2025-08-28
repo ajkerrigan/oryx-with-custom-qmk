@@ -112,6 +112,10 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 
 
+
+
+
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case ST_MACRO_0:
@@ -151,5 +155,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
-
-
