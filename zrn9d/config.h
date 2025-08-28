@@ -2,6 +2,8 @@
 #undef TAPPING_TERM
 #define TAPPING_TERM 250
 
+#define PERMISSIVE_HOLD
+
 #define COMBO_TERM 60
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
@@ -12,7 +14,7 @@
 #define MOUSEKEY_MAX_SPEED 10
 
 #define CAPS_LOCK_STATUS
-#define SERIAL_NUMBER "zrn9d/QzqR7V"
+#define SERIAL_NUMBER "zrn9d/v6mm5o"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 11
 
