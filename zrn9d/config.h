@@ -14,7 +14,8 @@
 #define MOUSEKEY_MAX_SPEED 10
 
 #define CAPS_LOCK_STATUS
-#define SERIAL_NUMBER "zrn9d/v6mm5o"
+#define HOLD_ON_OTHER_KEY_PRESS
+#define SERIAL_NUMBER "zrn9d/5Wwpxe"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 11
 
