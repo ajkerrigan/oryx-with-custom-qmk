@@ -81,7 +81,7 @@ const uint16_t PROGMEM combo10[] = { MT(MOD_LSFT, KC_X), MT(MOD_RSFT, KC_DOT), C
 -
 
 
-o_t key_combos[COMBO_COUNT] = {
+combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, MO(1)),
     COMBO(combo1, MO(1)),
     COMBO(combo2, MO(2)),
