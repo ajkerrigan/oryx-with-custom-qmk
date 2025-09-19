@@ -94,17 +94,17 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LT(3, KC_TAB):
             return g_tapping_term -100;
         case MT(MOD_LSFT, KC_GRAVE):
-            return g_tapping_term -100;
+            return g_tapping_term -150;
         case MT(MOD_LCTL, KC_Z):
-            return g_tapping_term -100;
+            return g_tapping_term -150;
         case MT(MOD_LSFT, KC_X):
-            return g_tapping_term -100;
+            return g_tapping_term -150;
         case MT(MOD_RSFT, KC_DOT):
-            return g_tapping_term -100;
+            return g_tapping_term -150;
         case MT(MOD_RCTL, KC_SLASH):
-            return g_tapping_term -100;
+            return g_tapping_term -150;
         case MT(MOD_RSFT, KC_EQUAL):
-            return g_tapping_term -100;
+            return g_tapping_term -150;
         default:
             return g_tapping_term;
     }
@@ -118,6 +118,22 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+  case QK_MODS ... QK_MODS_MAX: 
+    // Mouse keys with modifiers work inconsistently across operating systems, this makes sure that modifiers are always
+    // applied to the mouse key that was pressed.
+    if (IS_MOUSE_KEYCODE(QK_MODS_GET_BASIC_KEYCODE(keycode))) {
+    if (record->event.pressed) {
+        add_mods(QK_MODS_GET_MODS(keycode));
+        send_keyboard_report();
+        wait_ms(2);
+        register_code(QK_MODS_GET_BASIC_KEYCODE(keycode));
+        return false;
+      } else {
+        wait_ms(2);
+        del_mods(QK_MODS_GET_MODS(keycode));
+      }
+    }
+    break;
     case ST_MACRO_0:
     if (record->event.pressed) {
       SEND_STRING(SS_LCTL(SS_TAP(X_A))SS_DELAY(100)  SS_TAP(X_LBRC));
