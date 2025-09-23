@@ -12,7 +12,7 @@
 #define MOUSEKEY_MAX_SPEED 10
 
 #define CAPS_LOCK_STATUS
-#define SERIAL_NUMBER "zrn9d/DzN76K"
+#define SERIAL_NUMBER "zrn9d/6awNon"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 11
 
