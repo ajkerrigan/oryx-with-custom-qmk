@@ -22,7 +22,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
     KC_BSPC,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
     LT(3, KC_TAB),  KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                                           KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,
-    MT(MOD_LSFT, KC_GRAVE),MT(MOD_LCTL, KC_Z),MT(MOD_LSFT, KC_X),MT(MOD_LALT, KC_C),MT(MOD_LGUI, KC_V),KC_B,                                           KC_N,           MT(MOD_RGUI, KC_M),MT(MOD_RALT, KC_COMMA),MT(MOD_RSFT, KC_DOT),MT(MOD_RCTL, KC_SLASH),MT(MOD_RSFT, KC_EQUAL),
+    KC_LEFT_SHIFT,  MT(MOD_LCTL, KC_Z),MT(MOD_LSFT, KC_X),MT(MOD_LALT, KC_C),MT(MOD_LGUI, KC_V),KC_B,                                           KC_N,           MT(MOD_RGUI, KC_M),MT(MOD_RALT, KC_COMMA),MT(MOD_RSFT, KC_DOT),MT(MOD_RCTL, KC_SLASH),KC_RIGHT_SHIFT, 
                                                     KC_SPACE,       KC_BSPC,                                        KC_TAB,         KC_ENTER
   ),
   [1] = LAYOUT_voyager(
@@ -93,17 +93,17 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(3, KC_TAB):
             return g_tapping_term -100;
-        case MT(MOD_LSFT, KC_GRAVE):
+        case KC_LEFT_SHIFT:
             return g_tapping_term -125;
         case MT(MOD_LCTL, KC_Z):
-            return g_tapping_term -125;
+            return g_tapping_term -100;
         case MT(MOD_LSFT, KC_X):
-            return g_tapping_term -125;
+            return g_tapping_term -100;
         case MT(MOD_RSFT, KC_DOT):
-            return g_tapping_term -125;
+            return g_tapping_term -100;
         case MT(MOD_RCTL, KC_SLASH):
-            return g_tapping_term -125;
-        case MT(MOD_RSFT, KC_EQUAL):
+            return g_tapping_term -100;
+        case KC_RIGHT_SHIFT:
             return g_tapping_term -125;
         default:
             return g_tapping_term;
